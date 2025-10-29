@@ -8,6 +8,7 @@ import React, { useReducer } from "react";
 import UserReducer from "./UserReducer";
 import axios from "axios";
 import UserContext from "./UserContext";
+import { GET_PROFILE, GET_USERS } from "../Types";
 
 const UserState = (props) => {
   //Definimos estado inicial
@@ -20,17 +21,25 @@ const UserState = (props) => {
   const [state, dispatch] = useReducer(UserReducer, initialState);
 
   const getUsers = async () => {
-    const res = await axios("https://reqres.in/api/users", {
+    const res = await axios("https://reqres.in/api/users/", {
       headers: { "x-api-key": " reqres-free-v1" },
     });
     console.log(res.data.data);
+    dispatch({
+      type: GET_USERS,
+      payload: res.data.data,
+    });
   };
 
   const getProfile = async (id) => {
-    const res = await axios("https://reqres.in/api/users" + id, {
+    const res = await axios("https://reqres.in/api/users/" + id, {
       headers: { "x-api-key": " reqres-free-v1" },
     });
     console.log(res.data.data);
+    dispatch({
+      type: GET_PROFILE,
+      payload: res.data.data,
+    });
   };
 
   return (
