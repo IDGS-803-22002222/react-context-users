@@ -3,6 +3,7 @@ import UserList from "./components/UserList";
 import Profile from "./components/Profile";
 import UserState from "./context/User/UserState";
 import "bootstrap/dist/css/bootstrap.min.css";
+import Formulario from "./components/Formulario";
 
 const App = () => {
   return (
@@ -12,6 +13,7 @@ const App = () => {
       </header>
       <UserState>
         <div className="row">
+          <Formulario />
           <div className="col-7">
             <UserList />
           </div>

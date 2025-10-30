@@ -1,6 +1,7 @@
 import React, { useEffect } from "react";
 import UserContext from "../context/User/UserContext";
 import { useContext } from "react";
+import { Button } from "react-bootstrap";
 
 const UserList = () => {
   //Usamos el hook useContext para consumir el state
@@ -26,6 +27,11 @@ const UserList = () => {
           <p>
             {user.first_name} {user.last_name}
           </p>
+          <div style={{ position: "revert-layer" }}>
+            <Button variant="danger" type="submit">
+              Eliminar
+            </Button>
+          </div>
         </a>
       ))}
     </div>
