@@ -1,4 +1,10 @@
-import { GET_PROFILE, GET_USERS } from "../Types";
+import {
+  GET_PROFILE,
+  GET_USERS,
+  CREATE_USER,
+  UPDATE_USER,
+  DELETE_USER,
+} from "../Types";
 
 export default (state, action) => {
   const { type, payload } = action;
@@ -14,7 +20,19 @@ export default (state, action) => {
         ...state,
         selectedUser: payload,
       };
+    case CREATE_USER:
+      return {
+        ...state,
+      };
+    case UPDATE_USER:
+      return {
+        ...state,
+      };
+    case DELETE_USER:
+      return {
+        ...state,
+      };
     default:
-      state;
+      return state;
   }
 };
